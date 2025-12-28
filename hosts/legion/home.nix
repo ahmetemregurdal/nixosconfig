@@ -6,6 +6,7 @@
 			browser = "qutebrowser";
 			terminal = "kitty";
 			editor = "nixvim";
+			firefox.enable = true;
 			stylix.enable = true;
 			zathura.enable = true;
 			pgp.enable = true;
