@@ -42,6 +42,7 @@ in
 					"XF86MonBrightnessUp".action = spawn-sh "exec swayosd-client --brightness=raise";
 					"XF86MonBrightnessDown".action = spawn-sh "exec swayosd-client --brightness=lower";
 					"XF86AudioPlay".action = spawn-sh "exec playerctl play-pause";
+					"XF86AudioStop".action = spawn-sh "exec playerctl stop";
 					"XF86AudioNext".action = spawn-sh "exec playerctl next";
 					"XF86AudioPrev".action = spawn-sh "exec playerctl previous";
 					"XF86Calculator".action = spawn-sh "exec qalculate-qt";
@@ -52,9 +53,17 @@ in
 					"Mod+Q".action = close-window;
 					"Mod+H".action = focus-column-left;
 					"Mod+L".action = focus-column-right;
-					"Mod+J".action = focus-workspace-down;
-					"Mod+K".action = focus-workspace-up;
+					"Mod+Ctrl+H".action = move-column-left;
+					"Mod+Ctrl+L".action = move-column-right;
+					"Mod+J".action = focus-window-or-workspace-down;
+					"Mod+K".action = focus-window-or-workspace-up;
+					"Mod+Ctrl+J".action = move-window-down-or-to-workspace-down;
+					"Mod+Ctrl+K".action = move-window-up-or-to-workspace-up;
+					"Mod+BracketLeft".action = consume-or-expel-window-left;
+					"Mod+BracketRight".action = consume-or-expel-window-right;
 					"Mod+W".action = toggle-column-tabbed-display;
+					"Mod+C".action = center-column;
+					"Mod+Shift+C".action = center-visible-columns;
 					"Mod+R".action = switch-preset-column-width;
 					"Mod+Space".action = switch-layout "next";
 					"Print".action = spawn-sh "exec grim -g \"$(slurp -d -F ${config.stylix.fonts.monospace.name})\" \"${config.xdg.userDirs.extraConfig.XDG_SCREENSHOT_DIR}/$(date +'%Y-%m-%d %H:%M:%S.png')\"";
