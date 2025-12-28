@@ -104,10 +104,15 @@ in
 
 				hints.radius = 0;
 
-				qt.args = [
-					"enable-gpu-rasterization"
-					"ignore-gpu-blocklist"
-				];
+				qt = {
+					chromium = {
+						experimental_web_platform_features = "always";
+					};
+					args = [
+						"enable-gpu-rasterization"
+						"ignore-gpu-blocklist"
+					];
+				};
 				
 				window.hide_decoration = true;
 			};
