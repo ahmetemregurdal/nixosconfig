@@ -3,6 +3,7 @@
 let
 	cfg = config.userSettings.niri;
 	font = config.stylix.fonts.monospace.name;
+	colors = config.lib.stylix.colors;
 	term = config.userSettings.terminal;
 	spawnTerm = config.userSettings.spawnTerminal;
 	spawnBrowser = config.userSettings.spawnBrowser;
@@ -99,10 +100,6 @@ in
 						natural-scroll = true;
 						drag-lock = true;
 					};
-					warp-mouse-to-focus = {
-						enable = true;
-						mode = "center-xy";
-					};
 					focus-follows-mouse = {
 						enable = true;
 						max-scroll-amount = "90%";
@@ -114,7 +111,7 @@ in
 				};
 				overview = {
 					zoom = 1. / 2.;
-					backdrop-color = "#" + config.lib.stylix.colors.base01;
+					backdrop-color = "#" + colors.base01;
 				};
 				hotkey-overlay = {
 					skip-at-startup = true;
@@ -136,17 +133,79 @@ in
 			};
 		};
 
-		stylix.targets.waybar.enable = true;
 		programs.waybar = {
 			enable = true;
+			style = ''
+				* {
+					font-family: ${font};
+					font-size: 12pt;
+					border: none;
+					min-height: 0;
+					border-radius: 0;
+				}
+				window#waybar {
+					color: #${colors.base05};
+					background: #${colors.base00};
+				}
+				tooltip {
+					border: 1px solid #${colors.base0D};
+					background: #${colors.base00};
+				}
+				tooltip label {
+					color: #${colors.base05};
+				}
+				#workspaces button {
+					padding: 0 5px;
+					background: transparent;
+					color: #${colors.base05};
+					border-bottom: 3px solid transparent;
+				}
+				#workspaces button.focused {
+					border-bottom: 3px solid #${colors.base0D};
+				}
+				#clock, #backlight, #battery, #wireplumber, #language, #keyboard-state {
+					padding: 0 5px;
+				}
+				#language {
+					color: #${colors.base0A};
+				}
+				#backlight {
+					color: #${colors.base0B};
+				}
+				#wireplumber {
+					color: #${colors.base0C};
+				}
+				#battery {
+					color: #${colors.base0D};
+				}
+				#clock {
+					color: #${colors.base0E};
+				}
+			'';
 			settings = {
 				mainBar = {
 					layer = "top";
 					position = "top";
-					height = 30;
+					height = 20;
 					modules-left = [ "niri/workspaces" ];
 					modules-center = [ "niri/window" ];
-					modules-right = [ "niri/language" "backlight" "wireplumber" "battery" "clock" ];
+					modules-right = [
+						"niri/language"
+						"custom/seperator"
+						"backlight"
+						"custom/seperator"
+						"wireplumber"
+						"custom/seperator"
+						"battery"
+						"custom/seperator"
+						"clock"
+					];
+
+					"custom/seperator" = {
+						format = "|";
+						interval = "once";
+						tooltip = false;
+					};
 
 					clock = {
 						timezone = "Europe/Istanbul";
@@ -159,11 +218,11 @@ in
 							weeks-pos = "right";
 							on-scroll = 1;
 							format = {
-								months = "<span color='#" + config.lib.stylix.colors.base06 + "'><b>{}</b></span>";
-								days = "<span color='#" + config.lib.stylix.colors.base0E + "'><b>{}</b></span>";
-								weeks = "<span color='#" + config.lib.stylix.colors.base0D + "'><b>W{}</b></span>";
-								weekdays = "<span color='#" + config.lib.stylix.colors.base0A + "'><b>{}</b></span>";
-								today = "<span color='#" + config.lib.stylix.colors.base08 + "'><b><u>{}</u></b></span>";
+								months = "<span color='#" + colors.base06 + "'><b>{}</b></span>";
+								days = "<span color='#" + colors.base0E + "'><b>{}</b></span>";
+								weeks = "<span color='#" + colors.base0D + "'><b>W{}</b></span>";
+								weekdays = "<span color='#" + colors.base0A + "'><b>{}</b></span>";
+								today = "<span color='#" + colors.base08 + "'><b><u>{}</u></b></span>";
 							};
 						};
 					};
@@ -177,6 +236,7 @@ in
 					"niri/window" = {
 						format = "{title}";
 						icon = true;
+						tooltip = false;
 						icon-size = 16;
 					};
 
