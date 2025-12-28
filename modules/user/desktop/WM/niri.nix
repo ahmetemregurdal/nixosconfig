@@ -70,6 +70,13 @@ in
 						{ proportion = 1. / 2.;}
 						{ proportion = 2. / 3.;}
 					];
+					default-column-width = { proportion = 1. / 1.;};
+					default-column-display = "tabbed";
+					tab-indicator = {
+						hide-when-single-tab = true;
+					};
+					center-focused-column = "on-overflow";
+					always-center-single-column = true;
 				};
 
 				input = {
@@ -78,6 +85,30 @@ in
 							layout = "us,tr";
 						};
 					};
+					touchpad = {
+						tap = true;
+						natural-scroll = true;
+						drag-lock = true;
+					};
+					warp-mouse-to-focus = {
+						enable = true;
+						mode = "center-xy";
+					};
+					focus-follows-mouse = {
+						enable = true;
+						max-scroll-amount = "90%";
+					};
+				};
+				cursor = {
+					hide-when-typing = true;
+					hide-after-inactive-ms = 1000;
+				};
+				overview = {
+					zoom = 1. / 2.;
+					backdrop-color = "#" + config.lib.stylix.colors.base01;
+				};
+				hotkey-overlay = {
+					skip-at-startup = true;
 				};
 			};
 		};
