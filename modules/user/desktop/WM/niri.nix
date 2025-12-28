@@ -154,15 +154,6 @@ in
 				tooltip label {
 					color: #${colors.base05};
 				}
-				#workspaces button {
-					padding: 0 5px;
-					background: transparent;
-					color: #${colors.base05};
-					border-bottom: 3px solid transparent;
-				}
-				#workspaces button.focused {
-					border-bottom: 3px solid #${colors.base0D};
-				}
 				#clock, #backlight, #battery, #wireplumber, #language, #keyboard-state {
 					padding: 0 5px;
 				}
@@ -187,8 +178,11 @@ in
 					layer = "top";
 					position = "top";
 					height = 20;
-					modules-left = [ "niri/workspaces" ];
-					modules-center = [ "niri/window" ];
+					modules-left = [ "niri/window" ];
+					modules-center = [
+						"image"
+						"mpris"
+					];
 					modules-right = [
 						"niri/language"
 						"custom/seperator"
@@ -233,6 +227,16 @@ in
 						format-tr = "TR";
 					};
 
+					image = {
+						exec = "${pkgs.writeShellScript "WaybarAlbumart" ''
+							image=$(${pkgs.playerctl}/bin/playerctl metadata --format "{{ mpris:artUrl }}")
+							echo "''${image#file://}"
+						''}";
+						interval = 5;
+						size = 16;
+						tooltip = false;
+					};
+
 					"niri/window" = {
 						format = "{title}";
 						icon = true;
@@ -241,7 +245,8 @@ in
 					};
 
 					mpris = {
-						format = "{artist} {album} - {title} {position}/{length}";
+						format = " {artist} - {title} {position}/{length}";
+						interval = 1;
 					};
 
 					backlight = {
@@ -276,6 +281,7 @@ in
 			slurp
 			grim
 			playerctl
+			waybar-mpris
 		];
 
 		services.wl-clip-persist = {
