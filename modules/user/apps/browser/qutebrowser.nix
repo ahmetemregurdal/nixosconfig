@@ -81,6 +81,11 @@ in
 				};
 				content = {
 					blocking.method = "both";
+					blocking.adblock.lists = [
+						"https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
+						"https://easylist.to/easylist/easylist.txt"
+						"https://easylist.to/easylist/easyprivacy.txt"
+					];
 					pdfjs = true;
 				};
 				scrolling.smooth = true;
