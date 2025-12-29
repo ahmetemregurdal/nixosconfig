@@ -28,17 +28,5 @@
 			forgejo.enable = true;
 			llm.enable = true;
 		};
-		specialisation = {
-			noservice = {
-				configuration = {
-					selfhosting = {
-						enable = lib.mkForce false;
-						media.enable = lib.mkForce false;
-						forgejo.enable = lib.mkForce false;
-						llm.enable = lib.mkForce false;
-					};
-				};
-			};
-		};
 	};
 }

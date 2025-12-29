@@ -154,23 +154,29 @@ in
 				tooltip label {
 					color: #${colors.base05};
 				}
-				#clock, #backlight, #battery, #wireplumber, #language, #keyboard-state {
+				#clock, #backlight, #battery, #cpu, #wireplumber, #language, #memory, #keyboard-state {
 					padding: 0 5px;
 				}
 				#language {
-					color: #${colors.base0A};
+					color: #${colors.base09};
 				}
 				#backlight {
-					color: #${colors.base0B};
+					color: #${colors.base0A};
 				}
 				#wireplumber {
-					color: #${colors.base0C};
+					color: #${colors.base0B};
 				}
 				#battery {
+					color: #${colors.base0C};
+				}
+				#cpu {
 					color: #${colors.base0D};
 				}
-				#clock {
+				#memory {
 					color: #${colors.base0E};
+				}
+				#clock {
+					color: #${colors.base0F};
 				}
 			'';
 			settings = {
@@ -191,6 +197,10 @@ in
 						"wireplumber"
 						"custom/seperator"
 						"battery"
+						"custom/seperator"
+						"cpu"
+						"custom/seperator"
+						"memory"
 						"custom/seperator"
 						"clock"
 					];
@@ -227,12 +237,24 @@ in
 						format-tr = "TR";
 					};
 
+					cpu = {
+						interval = 1;
+						format = " {avg_frequency:0.1f}Ghz {usage}%";
+						tooltip = false;
+					};
+
+					memory = {
+						interval = 1;
+						format = " {used:0.1f}/{total:0.1f}GiB";
+						tooltip = false;
+					};
+
 					image = {
 						exec = "${pkgs.writeShellScript "WaybarAlbumart" ''
 							image=$(${pkgs.playerctl}/bin/playerctl metadata --format "{{ mpris:artUrl }}")
 							echo "''${image#file://}"
 						''}";
-						interval = 5;
+						interval = 1;
 						size = 16;
 						tooltip = false;
 					};
