@@ -63,6 +63,18 @@ in
 					url = "https://update.greasyfork.org/scripts/372/Expand%20Wikipedia%20Acronyms.user.js";
 					sha256 = "sha256-nMvGKkej8ljCr+yYG3MIvhxrkjOccUL/cK8YnJU4XFA=";
 				})
+				(pkgs.fetchurl {
+					url = "https://update.greasyfork.org/scripts/446769/Add%20success%20percentage.user.js";
+					sha256 = "sha256-KaUCULplhAgqqRC8ryJ0SxkgnK1m07VPk+BcaflNzd4=";
+				})
+				(pkgs.fetchurl {
+					url = "https://update.greasyfork.org/scripts/534112/CSES%20copy%20button.user.js";
+					sha256 = "sha256-B+1gmJGnZ+JUcSKm3Jqv+zfi8Db4K/GAXsOf3FC9mWU=";
+				})
+				(pkgs.fetchurl {
+					url = "https://update.greasyfork.org/scripts/557074/Submit%20Text%20on%20CSES.user.js";
+					sha256 = "sha256-OB3Rl/UHvQCZ8BmAHC2gXa65KLll8eLMuA+rH8Wmmqs=";
+				})
 			];
 			keyBindings = {
 				normal = {
