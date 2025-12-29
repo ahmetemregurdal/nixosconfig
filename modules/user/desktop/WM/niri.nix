@@ -184,11 +184,11 @@ in
 					layer = "top";
 					position = "top";
 					height = 20;
-					modules-left = [ "niri/window" ];
-					modules-center = [
+					modules-left = [
 						"image"
 						"mpris"
 					];
+					modules-center = [ ];
 					modules-right = [
 						"niri/language"
 						"custom/seperator"
@@ -257,13 +257,6 @@ in
 						interval = 1;
 						size = 16;
 						tooltip = false;
-					};
-
-					"niri/window" = {
-						format = "{title}";
-						icon = true;
-						tooltip = false;
-						icon-size = 16;
 					};
 
 					mpris = {
