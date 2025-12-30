@@ -19,9 +19,11 @@ in
 		programs.kitty = {
 			enable = true;
 			settings = {
-				configm_os_window_close = 0;
+				confirm_os_window_close = 0;
 				enable_audio_bell = false;
+				scrollbar = "never";
 				shell_integration = "no-sudo no-rc";
+				paste_actions = "confirm-if-large";
 			};
 			keybindings = {
 				"ctrl+equal" = "change_font_size all +2.0";
