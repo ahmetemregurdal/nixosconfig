@@ -8,6 +8,7 @@ let
 	spawnTerm = config.userSettings.spawnTerminal;
 	spawnBrowser = config.userSettings.spawnBrowser;
 	spawnEditor = config.userSettings.spawnEditor;
+	dmenu = config.userSettings.dmenu;
 in
 {
 	options = {
@@ -33,7 +34,7 @@ in
 			settings = {
 				binds = with config.lib.niri.actions; {
 					"Mod+T".action = spawn term;
-					"Mod+D".action = spawn "fuzzel";
+					"Mod+D".action = spawn-sh "${dmenu.drun}";
 					"Mod+B".action = spawn-sh spawnBrowser;
 					"Mod+E".action = spawn-sh spawnEditor;
 					"XF86AudioRaiseVolume".action = spawn-sh "exec swayosd-client --output-volume=raise";
