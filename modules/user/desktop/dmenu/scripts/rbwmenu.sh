@@ -16,7 +16,7 @@ entry=$(printf "%s\n" "$@" | $menu -p "󰌾 ")
 [ -z "$entry" ] && exit 1
 
 fn_add () {
-    getnewentry=$($menu -i -p "Entry name" < /dev/null)
+    getnewentry=$($menu -p "Entry name: " < /dev/null)
     [ -z "$getnewuser" ] && exit 1
 
     getnewuser=$($menu -p "Username: " < /dev/null)
