@@ -14,6 +14,6 @@ in
 	};
 
 	config = {
-		userSettings.dmenu.drun = "${lib.getExe pkgs.j4-dmenu-desktop} --dmenu=\"${spawnDmenu} -i\" --term=\"${spawnTerm}\"";
+		userSettings.dmenu.drun = "${lib.getExe pkgs.j4-dmenu-desktop} --dmenu=\"${spawnDmenu} -i\" --term=\"${spawnTerm}\" --no-generic";
 	};
 }

@@ -37,6 +37,7 @@ in
 					"Mod+D".action = spawn-sh "${dmenu.drun}";
 					"Mod+B".action = spawn-sh spawnBrowser;
 					"Mod+E".action = spawn-sh spawnEditor;
+					"Mod+P".action = spawn-sh config.userSettings.dmenu.rbwmenu;
 					"XF86AudioRaiseVolume".action = spawn-sh "exec swayosd-client --output-volume=raise";
 					"XF86AudioLowerVolume".action = spawn-sh "exec swayosd-client --output-volume=lower";
 					"XF86AudioMute".action = spawn-sh "exec swayosd-client --output-volume=mute-toggle";
