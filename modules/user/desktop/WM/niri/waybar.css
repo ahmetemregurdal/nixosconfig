@@ -1,0 +1,42 @@
+* {
+	font-family: "@fontName@";
+	font-size: 12pt;
+	border: none;
+	min-height: 0;
+	border-radius: 0;
+}
+window#waybar {
+	color: #@base05@;
+	background: #@base00@;
+}
+tooltip {
+	border: 1px solid #@base0D@;
+	background: #@base00@;
+}
+tooltip label {
+	color: #@base05@;
+}
+#clock, #backlight, #battery, #cpu, #wireplumber, #language, #memory, #keyboard-state {
+	padding: 0 5px;
+}
+#language {
+	color: #@base09@;
+}
+#backlight {
+	color: #@base0A@;
+}
+#wireplumber {
+	color: #@base0B@;
+}
+#battery {
+	color: #@base0C@;
+}
+#cpu {
+	color: #@base0D@;
+}
+#memory {
+	color: #@base0E@;
+}
+#clock {
+	color: #@base0F@;
+}

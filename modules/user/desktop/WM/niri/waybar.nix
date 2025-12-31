@@ -4,55 +4,24 @@ let
 	cfg = config.userSettings.niri;
 	font = config.stylix.fonts.monospace.name;
 	colors = config.lib.stylix.colors;
+	waybarCss = pkgs.replaceVars ./waybar.css {
+		fontName = font;
+		base00 = colors.base00;
+		base05 = colors.base05;
+		base09 = colors.base09;
+		base0A = colors.base0A;
+		base0B = colors.base0B;
+		base0C = colors.base0C;
+		base0D = colors.base0D;
+		base0E = colors.base0E;
+		base0F = colors.base0F;
+	};
 in
 {
 	config = lib.mkIf cfg.enable {
 		programs.waybar = {
 			enable = true;
-			style = ''
-				* {
-					font-family: ${font};
-					font-size: 12pt;
-					border: none;
-					min-height: 0;
-					border-radius: 0;
-				}
-				window#waybar {
-					color: #${colors.base05};
-					background: #${colors.base00};
-				}
-				tooltip {
-					border: 1px solid #${colors.base0D};
-					background: #${colors.base00};
-				}
-				tooltip label {
-					color: #${colors.base05};
-				}
-				#clock, #backlight, #battery, #cpu, #wireplumber, #language, #memory, #keyboard-state {
-					padding: 0 5px;
-				}
-				#language {
-					color: #${colors.base09};
-				}
-				#backlight {
-					color: #${colors.base0A};
-				}
-				#wireplumber {
-					color: #${colors.base0B};
-				}
-				#battery {
-					color: #${colors.base0C};
-				}
-				#cpu {
-					color: #${colors.base0D};
-				}
-				#memory {
-					color: #${colors.base0E};
-				}
-				#clock {
-					color: #${colors.base0F};
-				}
-			'';
+			style = waybarCss;
 			settings = {
 				mainBar = {
 					layer = "top";

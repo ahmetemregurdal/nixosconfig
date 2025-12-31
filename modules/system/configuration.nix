@@ -24,10 +24,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Set your time zone.
   time.timeZone = "Europe/Istanbul";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -60,21 +58,11 @@
     pulse.enable = true;
     jack.enable = true;
 		lowLatency.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
-  environment.systemPackages = with pkgs; [
-		pciutils
-  ];
 
 	programs.git = {
 		enable = true;

@@ -51,30 +51,23 @@ in
 			};
 			plugins.treesitter = {
 				enable = true;
-				grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; lib.flatten ([
-						[
-							bash
-							json
-							lua
-							markdown
-							make
-							nix
-							regex
-							toml
-							vim
-							vimdoc
-							xml
-							yaml
-						]
-
-						(lib.optionals language.cpp.enable [
-						 cpp
-						])
-
-						(lib.optionals language.qml.enable [
-							qmljs
-						])
-				]);
+				grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+						bash
+						json
+						lua
+						markdown
+						make
+						nix
+						regex
+						toml
+						vim
+						vimdoc
+						xml
+						yaml
+						css
+						cpp
+						qmljs
+				];
 
 				settings.highlight.enable = true;
 			};
@@ -141,6 +134,8 @@ in
 			plugins.lualine = {
 				enable = true;
 			};
+			
+			plugins.hmts.enable = true;
 		};
 	};
 }

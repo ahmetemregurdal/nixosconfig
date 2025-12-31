@@ -119,19 +119,8 @@ in
 			};
 		};
 		stylix.targets.niri.enable = true;
-		stylix.targets.fuzzel.enable = true;
 		services.wpaperd.enable = true;
 		stylix.targets.wpaperd.enable = true;
-		programs.fuzzel = {
-			enable = true;
-			settings = {
-				main = {
-					font = lib.mkForce (font + ":size=20");
-					show-actions = true;
-					terminal = spawnTerm;
-				};
-			};
-		};
 
 		services.swayosd = {
 			enable = true;
