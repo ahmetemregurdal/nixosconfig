@@ -36,6 +36,7 @@ in
 					"Mod+T".action = spawn term;
 					"Mod+D".action = spawn-sh "${dmenu.drun}";
 					"Mod+B".action = spawn-sh spawnBrowser;
+					"Mod+Shift+B".action = spawn-sh "${dmenu.bzmenu}";
 					"Mod+E".action = spawn-sh spawnEditor;
 					"Mod+P".action = spawn-sh config.userSettings.dmenu.rbwmenu;
 					"XF86AudioRaiseVolume".action = spawn-sh "exec swayosd-client --output-volume=raise";
