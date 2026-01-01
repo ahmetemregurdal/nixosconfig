@@ -10,7 +10,7 @@ window#waybar {
 	background: #@base00@;
 }
 tooltip {
-	border: 1px solid #@base0D@;
+	border: 3px solid #@base0D@;
 	background: #@base00@;
 }
 tooltip label {
