@@ -18,7 +18,6 @@
 	"udev.log_priority=3"
 	"rd.systemd.show_status=auto"
   ];
-  boot.loader.timeout = 0;
 
   networking.networkmanager.enable = true;
 
