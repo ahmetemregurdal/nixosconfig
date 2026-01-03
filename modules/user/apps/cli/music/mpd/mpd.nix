@@ -3,6 +3,7 @@
 let
 	cfg = config.userSettings.musicPlayers.mpd;
 	rmpcConfig = pkgs.replaceVars ./config.ron {
+		musicDir = config.xdg.userDirs.music;
 	};
 in
 {

@@ -22,7 +22,7 @@ let
 			exit 0
 		fi
 
-		printf '%s\n' "$LYRICS" > "$LRC"
+		printf '%s\n' "$LYRICS" | sed -E 's/\[([0-9]{2}:[0-9]{2}\.[0-9]{2})\]/\n[\1]/g' | sed '1{/^$/d;}' > "$LRC"
 		echo "Created LRC: $LRC"
 	'';
 	beetConfig = pkgs.replaceVars ./beets.config.yaml {
