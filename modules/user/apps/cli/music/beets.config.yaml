@@ -1,0 +1,42 @@
+plugins:
+- musicbrainz
+- lyrics
+- fetchart
+- embedart
+- fromfilename
+- convert
+- replaygain
+- hook
+
+directory: @musicDirectory@
+
+import:
+  move: true
+  write: true
+
+library: @xdgDataDir@/beets.db
+
+convert:
+  auto: true
+  delete_originals: true
+  format: AAC
+  formats:
+    aac:
+      command: ffmpeg -i $source -vn -c:a aac -q:a 6 $dest
+      extension: m4a
+  never_convert_lossy_files: true
+
+lyrics:
+  synced: true
+
+replaygain:
+  auto: true
+  backend: ffmpeg
+  overwrite: true
+  peak: 'true'
+  r128: flac m4a
+
+hook:
+  hooks:
+    - event: write
+      command: @pathToScript@ "{path}"
