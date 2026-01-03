@@ -28,8 +28,7 @@ in
 					position = "top";
 					height = 20;
 					modules-left = [
-						"image"
-						"mpris"
+						"mpd"
 					];
 					modules-center = [ ];
 					modules-right = [
@@ -92,19 +91,10 @@ in
 						tooltip = false;
 					};
 
-					image = {
-						exec = "${pkgs.writeShellScript "WaybarAlbumart" ''
-							image=$(${pkgs.playerctl}/bin/playerctl metadata --format "{{ mpris:artUrl }}")
-							echo "''${image#file://}"
-						''}";
-						interval = 1;
-						size = 16;
+					mpd = {
+						interval = 5;
+						format = "{artist} - {album} - {title} [{elapsedTime:%M:%S}/{totalTime:%M:%S}]";
 						tooltip = false;
-					};
-
-					mpris = {
-						format = " {artist} - {title} {position}/{length}";
-						interval = 1;
 					};
 
 					backlight = {

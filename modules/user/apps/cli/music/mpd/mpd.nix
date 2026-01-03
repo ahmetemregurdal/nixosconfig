@@ -2,8 +2,7 @@
 
 let
 	cfg = config.userSettings.musicPlayers.mpd;
-	ncmpcppConf = pkgs.replaceVars ./ncmpcpp_config {
-
+	rmpcConfig = pkgs.replaceVars ./config.ron {
 	};
 in
 {
@@ -20,8 +19,8 @@ in
 		};
 		home.packages = [
 			pkgs.mpc
-			pkgs.ncmpcpp
+			pkgs.rmpc
 		];
-		home.file.".config/ncmpcpp/config".source = ncmpcppConf;
+		home.file.".config/rmpc/config.ron".source = rmpcConfig;
 	};
 }

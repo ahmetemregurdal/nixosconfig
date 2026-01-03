@@ -45,11 +45,11 @@ in
 					"XF86AudioMicMute".action = spawn-sh "exec swayosd-client --input-volume=mute-toggle";
 					"XF86MonBrightnessUp".action = spawn-sh "exec swayosd-client --brightness=raise";
 					"XF86MonBrightnessDown".action = spawn-sh "exec swayosd-client --brightness=lower";
-					"XF86AudioPlay".action = spawn-sh "exec playerctl play-pause";
-					"XF86AudioStop".action = spawn-sh "exec playerctl stop";
-					"XF86AudioNext".action = spawn-sh "exec playerctl next";
-					"XF86AudioPrev".action = spawn-sh "exec playerctl previous";
-					"XF86Calculator".action = spawn-sh "exec qalculate-qt";
+					"XF86AudioPlay".action = spawn-sh "exec ${lib.getExe pkgs.mpc} toggle";
+					"XF86AudioStop".action = spawn-sh "exec ${lib.getExe pkgs.mpc} stop";
+					"XF86AudioNext".action = spawn-sh "exec ${lib.getExe pkgs.mpc} next";
+					"XF86AudioPrev".action = spawn-sh "exec ${lib.getExe pkgs.mpc} prev";
+					"XF86Calculator".action = spawn "${lib.getExe pkgs.qalculate-qt}";
 					"Mod+Shift+E".action = quit { skip-confirmation = true;};
 					"Mod+O".action = toggle-overview;
 					"Mod+Shift+F".action = fullscreen-window;
@@ -70,7 +70,7 @@ in
 					"Mod+Shift+C".action = center-visible-columns;
 					"Mod+R".action = switch-preset-column-width;
 					"Mod+Space".action = switch-layout "next";
-					"Print".action = spawn-sh "exec grim -g \"$(slurp -d -F ${config.stylix.fonts.monospace.name})\" \"${config.xdg.userDirs.extraConfig.XDG_SCREENSHOT_DIR}/$(date +'%Y-%m-%d %H:%M:%S.png')\"";
+					"Print".action = spawn-sh "exec ${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d -F ${config.stylix.fonts.monospace.name})\" \"${config.xdg.userDirs.extraConfig.XDG_SCREENSHOT_DIR}/$(date +'%Y-%m-%d %H:%M:%S.png')\"";
 				};
 				prefer-no-csd = true;
 				layout = {
@@ -128,10 +128,6 @@ in
 		};
 		home.packages = with pkgs; [
 			wl-clipboard
-			slurp
-			grim
-			playerctl
-			waybar-mpris
 		];
 
 		services.wl-clip-persist = {
