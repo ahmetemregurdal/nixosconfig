@@ -4,7 +4,7 @@
 (
     address: "127.0.0.1:6600",
     password: None,
-    theme: None,
+    theme: "defaultTheme",
     cache_dir: None,
     on_song_change: None,
     volume_step: 5,
@@ -17,7 +17,7 @@
     rewind_to_start_sec: None,
     keep_state_on_song_change: true,
     reflect_changes_to_playlist: false,
-    select_current_song_on_change: false,
+    select_current_song_on_change: true,
     ignore_leading_the: false,
 		lyrics_dir: "@musicDir@",
     browser_song_sort: [Disc, Track, Artist, Title],
@@ -40,10 +40,9 @@
             "1":       SwitchToTab("Queue"),
             "2":       SwitchToTab("Directories"),
             "3":       SwitchToTab("Artists"),
-            "4":       SwitchToTab("Album Artists"),
-            "5":       SwitchToTab("Albums"),
-            "6":       SwitchToTab("Playlists"),
-            "7":       SwitchToTab("Search"),
+            "4":       SwitchToTab("Albums"),
+            "5":       SwitchToTab("Playlists"),
+            "6":       SwitchToTab("Search"),
             "q":       Quit,
             ">":       NextTrack,
             "p":       TogglePause,
@@ -151,7 +150,19 @@
                     ), 
                     (
                         size: "60%",
-                        pane: Pane(Queue)
+                        pane: Split(
+													direction: Vertical,
+													panes: [
+														(
+															size: "50%",
+															pane: Pane(Queue),
+														),
+														(
+															size: "50%",
+															pane: Pane(Cava),
+														),
+													],
+												),
                     ),
                 ],
             ),
@@ -162,10 +173,6 @@
         ),
         (
             name: "Artists",
-            pane: Pane(Artists),
-        ),
-        (
-            name: "Album Artists",
             pane: Pane(AlbumArtists),
         ),
         (
@@ -181,5 +188,14 @@
             pane: Pane(Search),
         ),
     ],
+		cava: (
+			input: (
+				method: Fifo,
+				source: "/tmp/mpd.fifo",
+				sample_rate: 44100,
+				channels: 2,
+				sample_bits: 16,
+			),
+		),
 )
 

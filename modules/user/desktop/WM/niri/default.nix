@@ -45,10 +45,10 @@ in
 					"XF86AudioMicMute".action = spawn-sh "exec swayosd-client --input-volume=mute-toggle";
 					"XF86MonBrightnessUp".action = spawn-sh "exec swayosd-client --brightness=raise";
 					"XF86MonBrightnessDown".action = spawn-sh "exec swayosd-client --brightness=lower";
-					"XF86AudioPlay".action = spawn-sh "exec ${lib.getExe pkgs.mpc} toggle";
-					"XF86AudioStop".action = spawn-sh "exec ${lib.getExe pkgs.mpc} stop";
-					"XF86AudioNext".action = spawn-sh "exec ${lib.getExe pkgs.mpc} next";
-					"XF86AudioPrev".action = spawn-sh "exec ${lib.getExe pkgs.mpc} prev";
+					"XF86AudioPlay".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} togglepause";
+					"XF86AudioStop".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} stop";
+					"XF86AudioNext".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} next";
+					"XF86AudioPrev".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} prev";
 					"XF86Calculator".action = spawn "${lib.getExe pkgs.qalculate-qt}";
 					"Mod+Shift+E".action = quit { skip-confirmation = true;};
 					"Mod+O".action = toggle-overview;

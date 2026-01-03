@@ -19,9 +19,10 @@ in
 			extraConfig = builtins.readFile ./mpd.conf;
 		};
 		home.packages = [
-			pkgs.mpc
 			pkgs.rmpc
+			pkgs.cava
 		];
 		home.file.".config/rmpc/config.ron".source = rmpcConfig;
+		home.file.".config/rmpc/themes/defaultTheme.ron".source = ./defaultTheme.ron;
 	};
 }
