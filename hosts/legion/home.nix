@@ -28,6 +28,7 @@
 				useful.enable = true;
 				useless.enable = true;
 			};
+			musicPlayers.mpd.enable = true;
 		};
 	};
 }
