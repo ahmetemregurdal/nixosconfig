@@ -73,9 +73,6 @@ in
 					"Print".action = spawn-sh "exec grim -g \"$(slurp -d -F ${config.stylix.fonts.monospace.name})\" \"${config.xdg.userDirs.extraConfig.XDG_SCREENSHOT_DIR}/$(date +'%Y-%m-%d %H:%M:%S.png')\"";
 				};
 				prefer-no-csd = true;
-				spawn-at-startup = [
-					{ argv = [ "xwayland-satellite" ]; }
-				];
 				layout = {
 					gaps = 10;
 					preset-column-widths = [

@@ -33,7 +33,7 @@ in
 			unrar
 			unzip
 			libqalculate
-			shntool
+			# shntool
 			flac
 			monkeysAudio
 			ffmpeg-full

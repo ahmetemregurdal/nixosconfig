@@ -56,7 +56,7 @@ in
 					package = pkgs.twitter-color-emoji;
 				};
 				sizes = {
-					terminal = 18;
+					terminal = 16;
 					applications = 12;
 					popups = 12;
 					desktop = 12;

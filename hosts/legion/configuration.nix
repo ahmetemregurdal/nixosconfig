@@ -24,9 +24,7 @@
 		programs.zsh.enable = true;
 		selfhosting = {
 			enable = true;
-			media.enable = true;
 			forgejo.enable = true;
-			llm.enable = true;
 		};
 	};
 }
