@@ -20,7 +20,7 @@
 				cpp.enable = true;
 				nix.enable = true;
 			};
-			nixcord.enable = true;
+			# nixcord.enable = true;
 			halloy.enable = true;
 			beets.enable = true;
 			shell = {
