@@ -24,12 +24,5 @@ in
 			(lib.mkIf (browser == "qutebrowser") "qutebrowser")
 			(lib.mkIf (browser == null) "")
 		];
-
-		services.psd = {
-			enable = true;
-			browsers = [
-				(lib.mkIf (config.userSettings.qutebrowser.enable) "qutebrowser")
-			];
-		};
 	};
 }

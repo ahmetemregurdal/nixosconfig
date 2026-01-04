@@ -21,6 +21,9 @@
 
   networking.networkmanager.enable = true;
 
+	services.speechd.enable = lib.mkForce false;
+	programs.nano.enable = lib.mkForce false;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Europe/Istanbul";

@@ -4,12 +4,12 @@
 	config = {
 		userSettings = {
 			browser = "qutebrowser";
-			terminal = "kitty";
+			terminal = "foot";
 			editor = "nixvim";
 			dmenu.app = "fuzzel";
 			stylix.enable = true;
 			zathura.enable = true;
-			pgp.enable = true;
+			# pgp.enable = true;
 			rbw = {
 				enable = true;
 				mail = "ahmetemregurdal2008@gmail.com";

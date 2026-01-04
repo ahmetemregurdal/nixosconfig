@@ -45,10 +45,10 @@ in
 					"XF86AudioMicMute".action = spawn-sh "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_SOURCE@ toggle";
 					"XF86MonBrightnessUp".action = spawn-sh "exec ${lib.getExe pkgs.brightnessctl} set 5%+";
 					"XF86MonBrightnessDown".action = spawn-sh "exec ${lib.getExe pkgs.brightnessctl} set 5%-";
-					"XF86AudioPlay".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} togglepause";
-					"XF86AudioStop".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} stop";
-					"XF86AudioNext".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} next";
-					"XF86AudioPrev".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} prev";
+					"XF86AudioPlay".action = spawn-sh "exec rmpc togglepause";
+					"XF86AudioStop".action = spawn-sh "exec rmpc stop";
+					"XF86AudioNext".action = spawn-sh "exec rmpc next";
+					"XF86AudioPrev".action = spawn-sh "exec rmpc prev";
 					"XF86Calculator".action = spawn "${lib.getExe pkgs.qalculate-qt}";
 					"Mod+Shift+E".action = quit { skip-confirmation = true;};
 					"Mod+O".action = toggle-overview;
