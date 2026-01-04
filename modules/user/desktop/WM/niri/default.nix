@@ -39,12 +39,12 @@ in
 					"Mod+Shift+B".action = spawn-sh "${dmenu.bzmenu}";
 					"Mod+E".action = spawn-sh spawnEditor;
 					"Mod+P".action = spawn-sh config.userSettings.dmenu.rbwmenu;
-					"XF86AudioRaiseVolume".action = spawn-sh "exec swayosd-client --output-volume=raise";
-					"XF86AudioLowerVolume".action = spawn-sh "exec swayosd-client --output-volume=lower";
-					"XF86AudioMute".action = spawn-sh "exec swayosd-client --output-volume=mute-toggle";
-					"XF86AudioMicMute".action = spawn-sh "exec swayosd-client --input-volume=mute-toggle";
-					"XF86MonBrightnessUp".action = spawn-sh "exec swayosd-client --brightness=raise";
-					"XF86MonBrightnessDown".action = spawn-sh "exec swayosd-client --brightness=lower";
+					"XF86AudioRaiseVolume".action = spawn-sh "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+					"XF86AudioLowerVolume".action = spawn-sh "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+					"XF86AudioMute".action = spawn-sh "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+					"XF86AudioMicMute".action = spawn-sh "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_SOURCE@ toggle";
+					"XF86MonBrightnessUp".action = spawn-sh "exec ${lib.getExe pkgs.brightnessctl} set 5%+";
+					"XF86MonBrightnessDown".action = spawn-sh "exec ${lib.getExe pkgs.brightnessctl} set 5%-";
 					"XF86AudioPlay".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} togglepause";
 					"XF86AudioStop".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} stop";
 					"XF86AudioNext".action = spawn-sh "exec ${lib.getExe pkgs.rmpc} next";
@@ -122,10 +122,6 @@ in
 		services.wpaperd.enable = true;
 		stylix.targets.wpaperd.enable = true;
 
-		services.swayosd = {
-			enable = true;
-			topMargin = 0.9;
-		};
 		home.packages = with pkgs; [
 			wl-clipboard
 		];
