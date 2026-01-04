@@ -25,7 +25,7 @@ in
 		userSettings.spawnTerminal = lib.mkMerge [
 			(lib.mkIf (terminal == "kitty") "${pkgs.kitty}/bin/kitty" )
 			(lib.mkIf (terminal == "alacritty") "${pkgs.alacritty}/bin/alacritty" )
-			(lib.mkIf (terminal == "foot") "${pkgs.foot}/bin/foot" )
+			(lib.mkIf (terminal == "foot") "${lib.getExe pkgs.foot}" )
 		];
 	};
 }
