@@ -39,4 +39,4 @@ replaygain:
 hook:
   hooks:
     - event: write
-      command: @pathToScript@ "{path}"
+      command: exportLrc "{path}"
