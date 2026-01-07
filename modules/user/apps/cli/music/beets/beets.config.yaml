@@ -17,12 +17,12 @@ import:
 library: @xdgDataDir@/beets.db
 
 convert:
-  auto: true
+  auto: false
   delete_originals: true
-  format: AAC
+  format: m4a
   formats:
-    aac:
-      command: ffmpeg -i $source -vn -c:a aac -q:a 6 $dest
+    m4a:
+      command: ffmpeg -i $source -map_metadata 0 -vn -c:a aac -q:a 6 -movflags +faststart $dest
       extension: m4a
   never_convert_lossy_files: true
 

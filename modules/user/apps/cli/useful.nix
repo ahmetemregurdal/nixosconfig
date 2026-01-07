@@ -37,6 +37,7 @@ in
 			flac
 			monkeysAudio
 			ffmpeg-full
+			syncthing
 			apktool
 		];
 	};

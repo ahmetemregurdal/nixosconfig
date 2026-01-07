@@ -7,6 +7,7 @@ let
 		xdgDataDir = "${config.home.homeDirectory}/.local/share";
 	};
 	exportLrc = pkgs.writeShellScriptBin "exportLrc" (builtins.readFile ./exportLrc.sh);
+	flacToM4a = pkgs.writeShellScriptBin "flac2m4a" (builtins.readFile ./convert.sh);
 in
 {
 	options = {
@@ -18,6 +19,7 @@ in
 			pkgs.beets
 			pkgs.exiftool
 			exportLrc
+			flacToM4a
 		];
 		home.file.".config/beets/config.yaml".source = beetConfig;
 	};

@@ -2,6 +2,7 @@ set -euo pipefail
 FILE="$1"
 
 case "$FILE" in
+	/tmp/** ) exit 0 ;;
 	*.m4a) ;;
 	*) exit 0 ;;
 esac

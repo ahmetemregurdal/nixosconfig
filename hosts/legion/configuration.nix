@@ -25,6 +25,7 @@
 		selfhosting = {
 			enable = true;
 			forgejo.enable = true;
+			llm.enable = true;
 		};
 	};
 }
