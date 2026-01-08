@@ -16,6 +16,7 @@ let
 
 	customRetroArch = pkgs.retroarch.withCores(cores: with pkgs.libretro; [
 		nestopia
+		bsnes
 	]);
 
 	nesFirm = pkgs.fetchurl {
@@ -50,6 +51,12 @@ in
 				};
 				libretro = {
 					package = customRetroArch;
+				};
+				dolphin = {
+					package = pkgs.dolphin-emu;
+				};
+				cemu = {
+					package = pkgs.cemu;
 				};
 			};
 		};
