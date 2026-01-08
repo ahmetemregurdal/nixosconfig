@@ -16,7 +16,6 @@
 			};
 			git.enable = true;
 			xdg.enable = true;
-			bulletty.enable = true;
 			languages = {
 				cpp.enable = true;
 				nix.enable = true;
