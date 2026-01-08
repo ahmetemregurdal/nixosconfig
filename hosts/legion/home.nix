@@ -16,12 +16,12 @@
 			};
 			git.enable = true;
 			xdg.enable = true;
+			bulletty.enable = true;
 			languages = {
 				cpp.enable = true;
 				nix.enable = true;
 			};
 			# nixcord.enable = true;
-			halloy.enable = true;
 			beets.enable = true;
 			shell = {
 				tmux.enable = true;

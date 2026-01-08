@@ -12,13 +12,7 @@ in
 
 	config = lib.mkIf cfg.enable {
 		userSettings.stylix.enable = true;
-		stylix.targets.yazi.enable = true;
 		stylix.targets.btop.enable = true;
-
-		programs.yazi = {
-			enable = true;
-			enableZshIntegration = true;
-		};
 
 		programs.zoxide = {
 			enable = true;
