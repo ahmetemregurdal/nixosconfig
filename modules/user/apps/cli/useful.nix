@@ -27,10 +27,6 @@ in
 			unrar
 			unzip
 			libqalculate
-			shntool
-			flac
-			monkeysAudio
-			ffmpeg-full
 			syncthing
 			apktool
 		];

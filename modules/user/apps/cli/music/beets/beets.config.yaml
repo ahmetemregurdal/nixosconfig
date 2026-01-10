@@ -28,6 +28,7 @@ convert:
 
 lyrics:
   synced: true
+  sources: [lrclib]
 
 replaygain:
   auto: true

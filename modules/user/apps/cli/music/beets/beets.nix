@@ -18,6 +18,11 @@ in
 		home.packages = [
 			pkgs.beets
 			pkgs.exiftool
+			pkgs.parallel-full
+			pkgs.shntool
+			pkgs.flac
+			pkgs.monkeysAudio
+			pkgs.ffmpeg-full
 			exportLrc
 			flacToM4a
 		];
