@@ -24,6 +24,13 @@ let
 		name = "nesFirm";
 		sha256 = "sha256-mcGEkO2QAtnG2Zm52NFb5cBRvfp8x+czGAU8mplLAXg=";
 	};
+	libretroFirm = pkgs.fetchFromGitHub {
+		owner = "Abdess";
+		repo = "retroarch_system";
+		rev = "5f96368f6dbad5851cdb16a5041fefec4bdcd305";
+		sha256 = "sha256-h6tTjB4hVsnTRwmtC9Gm3HMLZmPP8KNRUdrlh1cjg58=";
+	};
+	snesFirm = "${libretroFirm}/Nintendo - Super Nintendo Entertainment System";
 in
 {
 	options = {
@@ -87,6 +94,18 @@ in
 
 		home.file.".config/retroarch/system/disksys.rom" = {
 			source = nesFirm;
+		};
+		home.file.".config/retroarch/system" = {
+			source = snesFirm;
+			recursive = true;
+		};
+		home.file."Games/BIOSs" = {
+			source = snesFirm;
+			recursive = true;
+		};
+		home.file."Games/SNES" = {
+			source = snesFirm;
+			recursive = true;
 		};
 	};
 }
