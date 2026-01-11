@@ -13,21 +13,5 @@ in
 	};
 
 	config = {
-		home.packages = lib.flatten ([
-			(lib.optionals cfg.cpp.enable [
-				pkgs.gcc
-			])
-
-			(lib.optionals cfg.nix.enable [
-				inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-			])
-		]);
-
-		home.file."${config.home.homeDirectory}/.config/alejandra.toml" = {
-			enable = cfg.nix.enable;
-			text = ''
-				indentation = "Tabs"
-			'';
-		};
 	};
 }

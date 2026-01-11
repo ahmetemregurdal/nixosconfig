@@ -19,18 +19,17 @@ let
 		bsnes
 	]);
 
-	nesFirm = pkgs.fetchurl {
-		url = "https://raw.githubusercontent.com/Abdess/retroarch_system/libretro/Nintendo%20-%20Famicom%20Disk%20System/disksys.rom";
-		name = "nesFirm";
-		sha256 = "sha256-mcGEkO2QAtnG2Zm52NFb5cBRvfp8x+czGAU8mplLAXg=";
-	};
 	libretroFirm = pkgs.fetchFromGitHub {
 		owner = "Abdess";
 		repo = "retroarch_system";
 		rev = "5f96368f6dbad5851cdb16a5041fefec4bdcd305";
 		sha256 = "sha256-h6tTjB4hVsnTRwmtC9Gm3HMLZmPP8KNRUdrlh1cjg58=";
 	};
+	nesFirm = "${libretroFirm}/Nintendo - Famicom Disk System/disksys.rom";
 	snesFirm = "${libretroFirm}/Nintendo - Super Nintendo Entertainment System";
+	superGameBoyFirm = "${libretroFirm}/Nintendo - Super Game Boy/SGB1.sfc";
+	superGameBoyFirm2 = "${libretroFirm}/Nintendo - Super Game Boy/SGB2.sfc";
+	satellaviewFirm = "${libretroFirm}/Nintendo - Satellaview/BS-X.bin";
 in
 {
 	options = {
@@ -88,24 +87,21 @@ in
 			source = "${customRetroArch}/lib/retroarch/cores";
 		};
 
-		home.file."Games/BIOSs/disksys.rom" = {
-			source = nesFirm;
-		};
-
-		home.file.".config/retroarch/system/disksys.rom" = {
-			source = nesFirm;
-		};
+		home.file.".config/retroarch/system/disksys.rom".source = nesFirm;
 		home.file.".config/retroarch/system" = {
 			source = snesFirm;
 			recursive = true;
 		};
+		home.file.".config/retroarch/system/SGB1.sfc".source = nesFirm;
+		home.file.".config/retroarch/system/SGB2.sfc".source = nesFirm;
+		home.file.".config/retroarch/system/BS-X.bin".source = satellaviewFirm;
+		home.file."Games/BIOSs/disksys.rom".source = nesFirm;
 		home.file."Games/BIOSs" = {
 			source = snesFirm;
 			recursive = true;
 		};
-		home.file."Games/SNES" = {
-			source = snesFirm;
-			recursive = true;
-		};
+		home.file."Games/BIOSs/SGB1.sfc".source = superGameBoyFirm;
+		home.file."Games/BIOSs/SGB2.sfc".source = superGameBoyFirm2;
+		home.file."Games/BIOSs/BS-X.bin".source = satellaviewFirm;
 	};
 }

@@ -87,4 +87,9 @@
 	];
 
   system.stateVersion = "26.05";
+
+	services.locate = {
+		enable = true;
+		interval = "hourly";
+	};
 }

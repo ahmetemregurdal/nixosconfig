@@ -21,19 +21,12 @@
 		};
 		nixvim = {
 			url = "github:nix-community/nixvim";
-		};
-		nixcord = {
-			url = "github:kaylorben/nixcord";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nix-gaming = {
 			url = "github:fufexan/nix-gaming";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		alejandra = {
-			url = "github:kamadorueda/alejandra";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
 		nix-index-database = {
 			url = "github:nix-community/nix-index-database";
 			inputs.nixpkgs.follows = "nixpkgs";

@@ -20,7 +20,6 @@
 				cpp.enable = true;
 				nix.enable = true;
 			};
-			# nixcord.enable = true;
 			beets.enable = true;
 			shell = {
 				tmux.enable = true;

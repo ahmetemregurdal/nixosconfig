@@ -29,6 +29,7 @@ in
 			libqalculate
 			syncthing
 			apktool
+			gcc
 		];
 	};
 }

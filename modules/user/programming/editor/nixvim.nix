@@ -136,6 +136,12 @@ in
 			};
 			
 			plugins.hmts.enable = true;
+
+			plugins.vimtex = {
+				enable = true;
+				texlivePackage = pkgs.texliveFull;
+			};
 		};
+
 	};
 }
