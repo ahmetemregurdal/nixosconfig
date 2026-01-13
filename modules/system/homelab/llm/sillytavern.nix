@@ -22,7 +22,5 @@ in
 				--basicAuthMode true \
 			'';
 		};
-
-		networking.firewall.allowedTCPPorts = [ 8045 ];
 	};
 }

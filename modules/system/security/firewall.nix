@@ -19,7 +19,6 @@ in
 			];
 			trustedInterfaces = [
 				"tailscale0"
-				"airvpn"
 			];
 		};
 	};

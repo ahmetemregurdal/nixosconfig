@@ -26,6 +26,11 @@
 			enable = true;
 			forgejo.enable = true;
 			llm.enable = true;
+			media.enable = false;
+			matrix = {
+				enable = false;
+				enableMautrix = true;
+			};
 		};
 	};
 }

@@ -3,6 +3,7 @@
 {
 	home.packages = with pkgs; [
 		qbittorrent
-		signal-desktop-bin
+		flare-signal
+		dissent
 	];
 }
