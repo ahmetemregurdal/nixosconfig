@@ -10,10 +10,6 @@
 			url = "github:nix-community/stylix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		niri = {
-			url = "github:sodiboo/niri-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 		chaotic = {
 			url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +33,7 @@
 		};
 	};
 
-	outputs = inputs@{self, nixpkgs, home-manager, niri, chaotic, nur, nix-index-database, ...}:
+	outputs = inputs@{self, nixpkgs, home-manager, chaotic, nur, nix-index-database, ...}:
 
 	let
 		lib = inputs.nixpkgs.lib;
@@ -57,9 +53,6 @@
 				nix-index-database.nixosModules.nix-index
 				{ programs.nix-index-database.comma.enable = true; }
 				{
-					nixpkgs.overlays = [
-						niri.overlays.niri
-					];
 					home-manager.useGlobalPkgs = true;
 					home-manager.extraSpecialArgs = {
 						inherit inputs;

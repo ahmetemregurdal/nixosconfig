@@ -9,6 +9,7 @@
 			dmenu.app = "fuzzel";
 			stylix.enable = true;
 			zathura.enable = true;
+			vifm.enable = true;
 			# pgp.enable = true;
 			rbw = {
 				enable = true;

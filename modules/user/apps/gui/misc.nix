@@ -5,5 +5,6 @@
 		qbittorrent
 		flare-signal
 		dissent
+		qalculate-qt
 	];
 }

@@ -13,7 +13,7 @@ in
 	};
 
 	config = {
-		userSettings.dmenu.bzmenu = "${lib.getExe pkgs.bzmenu} --launcher custom --launcher-command \"${spawnDmenu} -i\"";
+		userSettings.dmenu.bzmenu = "${lib.getExe pkgs.bzmenu} --launcher custom --launcher-command \\\"${spawnDmenu} -i\\\"";
 	};
 }
 
