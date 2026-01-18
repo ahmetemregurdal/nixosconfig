@@ -17,11 +17,10 @@ input {
     }
     focus-follows-mouse max-scroll-amount="90%"
 }
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 overview {
     zoom 0.500000
-    backdrop-color "#0d0c0c"
+    backdrop-color "#@base01@"
 }
 layout {
     gaps 10
@@ -34,8 +33,8 @@ layout {
     focus-ring { off; }
     border {
         width 4
-        active-color "#8ba4b0"
-        inactive-color "#a6a69c"
+        active-color "#@base0D@"
+        inactive-color "#@base03@"
     }
     tab-indicator {
         hide-when-single-tab
@@ -57,8 +56,8 @@ layout {
     always-center-single-column
 }
 cursor {
-    xcursor-theme "capitaine-cursors"
-    xcursor-size 40
+    xcursor-theme "@cursor@"
+    xcursor-size @cursorSize@
     hide-when-typing
     hide-after-inactive-ms 1000
 }
@@ -67,7 +66,6 @@ recent-windows {
 }
 hotkey-overlay { skip-at-startup; }
 binds {
-    Mod+B { spawn-sh "exec @browser@"; }
     Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
     Mod+C { center-column; }
@@ -75,24 +73,26 @@ binds {
     Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
     Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
     Mod+Ctrl+L { move-column-right; }
-    Mod+D { spawn-sh "exec @dmenudrun@"; }
-    Mod+E { spawn-sh "exec @editor@"; }
     Mod+F { maximize-column; }
     Mod+H { focus-column-left; }
     Mod+J { focus-window-or-workspace-down; }
     Mod+K { focus-window-or-workspace-up; }
     Mod+L { focus-column-right; }
     Mod+O { toggle-overview; }
-    Mod+P { spawn-sh "exec @rbwmenu@"; }
     Mod+Q { close-window; }
     Mod+R { switch-preset-column-width; }
-    Mod+Shift+B { spawn-sh "exec @bluetoothmenu@"; }
     Mod+Shift+C { center-visible-columns; }
     Mod+Shift+E { quit skip-confirmation=true; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Space { switch-layout "next"; }
-    Mod+T { spawn "exec @term@"; }
     Mod+W { toggle-column-tabbed-display; }
+    Mod+D { spawn-sh "exec @dmenudrun@"; }
+    Mod+E { spawn-sh "@editor@"; }
+    Mod+P { spawn-sh "exec @rbwmenu@"; }
+    Mod+Shift+B { spawn-sh "exec @bluetoothmenu@"; }
+    Mod+B { spawn-sh "exec @browser@"; }
+    Mod+T { spawn-sh "exec @term@"; }
+    XF86Calculator { spawn "qalculate-qt"; }
     XF86AudioNext { spawn-sh "exec rmpc next"; }
     XF86AudioPlay { spawn-sh "exec rmpc togglepause"; }
     XF86AudioPrev { spawn-sh "exec rmpc prev"; }
@@ -101,7 +101,6 @@ binds {
     XF86AudioLowerVolume { spawn-sh "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
     XF86AudioMute { spawn-sh "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute { spawn-sh "exec wpctl set-mute @DEFAULT_SOURCE@ toggle"; }
-    XF86Calculator { spawn "qalculate-qt"; }
     XF86MonBrightnessDown { spawn-sh "exec brightnessctl set 5%-"; }
     XF86MonBrightnessUp { spawn-sh "exec brightnessctl set 5%+"; }
     Print { spawn-sh "exec grim -g \"$(slurp -d -F FiraCode Nerd Font)\" \"/home/aeg/Screenshots/$(date +'%Y-%m-%d %H:%M:%S.png')\""; }

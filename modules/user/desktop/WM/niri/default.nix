@@ -4,6 +4,7 @@ let
 	cfg = config.userSettings.niri;
 	font = config.stylix.fonts.monospace.name;
 	colors = config.lib.stylix.colors;
+	cursor = config.stylix.cursor;
 	term = config.userSettings.terminal;
 	spawnTerm = config.userSettings.spawnTerminal;
 	spawnBrowser = config.userSettings.spawnBrowser;
@@ -13,10 +14,15 @@ let
 		substitute ${./config.kdl} $out \
 			--replace-fail "@bluetoothmenu@" '${dmenu.bzmenu}' \
 			--replace-fail "@dmenudrun@" '${dmenu.drun}' \
-		  --replace-fail "@rbwmenu@" '${dmenu.rbwmenu}' \
+			--replace-fail "@rbwmenu@" '${dmenu.rbwmenu}' \
 			--replace-fail "@term@" '${term}' \
 			--replace-fail "@editor@" '${spawnEditor}' \
-			--replace-fail "@browser@" '${spawnBrowser}'
+			--replace-fail "@browser@" '${spawnBrowser}' \
+			--replace-quiet "@base01@" '${colors.base01}' \
+			--replace-quiet "@base03@" '${colors.base03}' \
+			--replace-quiet "@base0D@" '${colors.base0D}' \
+			--replace-fail "@cursor@" '${cursor.name}' \
+			--replace-fail "@cursorSize@" '${builtins.toString cursor.size}'
 	'';
 in
 {
@@ -48,6 +54,7 @@ in
 			brightnessctl
 			grim
 			slurp
+			satty
 			wireplumber
 		];
 
