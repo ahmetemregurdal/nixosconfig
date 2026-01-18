@@ -55,16 +55,6 @@ layout {
 	default-column-display "tabbed"
 	always-center-single-column
 }
-cursor {
-	xcursor-theme "@cursor@"
-	xcursor-size @cursorSize@
-	hide-when-typing
-	hide-after-inactive-ms 1000
-}
-recent-windows {
-	off
-}
-hotkey-overlay { skip-at-startup; }
 binds {
 	Mod+BracketLeft { consume-or-expel-window-left; }
 	Mod+BracketRight { consume-or-expel-window-right; }
@@ -107,3 +97,12 @@ binds {
 	Print { spawn-sh "exec grim -g \"$(slurp -d -F FiraCode Nerd Font)\" \"/home/aeg/Screenshots/$(date +'%Y-%m-%d %H:%M:%S.png')\""; }
 }
 
+recent-windows { off; }
+hotkey-overlay { skip-at-startup; }
+
+cursor {
+	xcursor-theme "@cursor@"
+	xcursor-size @cursorSize@
+	hide-when-typing
+	hide-after-inactive-ms 1000
+}
