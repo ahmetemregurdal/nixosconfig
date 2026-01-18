@@ -2,7 +2,6 @@
 
 let
 	cfg = config.userSettings.niri;
-	font = config.stylix.fonts.monospace.name;
 	colors = config.lib.stylix.colors;
 	cursor = config.stylix.cursor;
 	term = config.userSettings.terminal;
@@ -37,6 +36,7 @@ in
 	};
 
 	config = lib.mkIf cfg.enable {
+		userSettings.swaylock.enable = true;
 		home.sessionVariables = {
 			XDG_CURRENT_DESKTOP = "Niri";
 			NIXOS_OZONE_WL = "1";

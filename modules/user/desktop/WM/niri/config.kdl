@@ -92,6 +92,7 @@ binds {
     Mod+Shift+B { spawn-sh "exec @bluetoothmenu@"; }
     Mod+B { spawn-sh "exec @browser@"; }
     Mod+T { spawn-sh "exec @term@"; }
+		Mod+Shift+L { spawn-sh "exec swaylock"; }
     XF86Calculator { spawn "qalculate-qt"; }
     XF86AudioNext { spawn-sh "exec rmpc next"; }
     XF86AudioPlay { spawn-sh "exec rmpc togglepause"; }
