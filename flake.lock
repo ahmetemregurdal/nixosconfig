@@ -446,6 +446,22 @@
         "type": "github"
       }
     },
+    "overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./overlay",
+        "type": "path"
+      },
+      "original": {
+        "path": "./overlay",
+        "type": "path"
+      },
+      "parent": []
+    },
     "root": {
       "inputs": {
         "chaotic": "chaotic",
@@ -455,6 +471,7 @@
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "nur": "nur",
+        "overlay": "overlay",
         "stylix": "stylix"
       }
     },

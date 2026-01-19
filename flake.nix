@@ -31,9 +31,13 @@
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		overlay = {
+			url = "path:./overlay";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = inputs@{self, nixpkgs, home-manager, chaotic, nur, nix-index-database, ...}:
+	outputs = inputs@{self, nixpkgs, home-manager, chaotic, nur, nix-index-database, overlay, ...}:
 
 	let
 		lib = inputs.nixpkgs.lib;
@@ -46,6 +50,11 @@
 		value = lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
+				{
+					nixpkgs.overlays = [
+						overlay.overlays.default
+					];
+				}
 				{ config.networking.hostName = host; }
 				home-manager.nixosModules.home-manager
 				nur.modules.nixos.default
