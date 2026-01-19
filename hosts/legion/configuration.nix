@@ -14,6 +14,7 @@
 			bluetooth.enable = true;
 			displaymanager.enable = true;
 			gaming.enable = true;
+			virtualisation.enable = true;
 		};
 		home-manager.users.aeg.userSettings = {
 			name = "Ahmet Emre Gürdal";
