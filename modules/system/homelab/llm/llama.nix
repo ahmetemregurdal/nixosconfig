@@ -14,7 +14,7 @@ let
 		cudaSupport = true;
 		blasSupport = true;
 	};
-	llama-cmd = modelPath: "${lib.getExe' llama-cpp-cuda "llama-server"} --port \${PORT} -m ${modelPath} -c 8192 --no-webui";
+	llama-cmd = modelPath: "${lib.getExe' llama-cpp-cuda "llama-server"} --port \${PORT} -m ${modelPath} -c 8192 --no-webui -ngl 32";
 in
 {
 	config = lib.mkIf cfg.enable {

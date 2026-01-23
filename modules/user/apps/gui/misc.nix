@@ -6,5 +6,6 @@
 		flare-signal
 		dissent
 		qalculate-qt
+		signal-desktop-bin
 	];
 }

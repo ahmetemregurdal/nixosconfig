@@ -8,9 +8,7 @@ let
 		dmenu = spawnDmenu;
 		spawnTerm = spawnTerm;
 		copyCmd = "wl-copy";
-		dunstify = "${lib.getExe' pkgs.dunst "dunstify"}";
 		editor = spawnEditor;
-		rbw = "${lib.getExe pkgs.rbw}";
 	};
 in
 {
@@ -23,5 +21,10 @@ in
 	};
 	config = {
 		userSettings.dmenu.rbwmenu = "${pkgs.writeShellScript "rbwmenu.sh" (builtins.readFile rbwmenu)}";
+
+		home.packages = [
+			pkgs.rbw
+			pkgs.dunst
+		];
 	};
 }

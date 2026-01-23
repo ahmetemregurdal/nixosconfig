@@ -30,6 +30,10 @@ in
 			syncthing
 			apktool
 			gcc
+			man-pages
+			man-pages-posix
+			compiledb
+			gnumake
 		];
 	};
 }

@@ -30,6 +30,45 @@ let
 	superGameBoyFirm = "${libretroFirm}/Nintendo - Super Game Boy/SGB1.sfc";
 	superGameBoyFirm2 = "${libretroFirm}/Nintendo - Super Game Boy/SGB2.sfc";
 	satellaviewFirm = "${libretroFirm}/Nintendo - Satellaview/BS-X.bin";
+	prismSource = pkgs.fetchFromGitHub {
+		owner = "Diegiwg";
+		repo = "PrismLauncher-Cracked";
+		rev = "e8418b74059bdbe4fcc97522b25dc17373b0cc21";
+		sha256 = "sha256-GG+V2g5NfVrypTs8qbtGnUWTXTMkGtohy/uIDa5duI0=";
+	};
+
+	customPrism = with pkgs; (prismlauncher.override {
+				prismlauncher-unwrapped = prismlauncher-unwrapped.overrideAttrs (oldAttrs: {
+					src = prismSource;
+					patches = [];
+				});
+				additionalPrograms = [
+					ffmpeg
+					mangohud
+					gamemode
+				];
+
+				additionalLibs = [
+					SDL2
+					glfw
+					vulkan-loader
+					libpulseaudio
+					xorg.libX11
+					xorg.libXext
+				];
+
+				controllerSupport = true;
+
+				jdks = [
+					zulu8
+					zulu11
+					zulu17
+					zulu25
+					zulu
+					graalvmPackages.graalvm-ce
+					graalvmPackages.graalvm-oracle_17
+				];
+			});
 in
 {
 	options = {
@@ -103,5 +142,9 @@ in
 		home.file."Games/BIOSs/SGB1.sfc".source = superGameBoyFirm;
 		home.file."Games/BIOSs/SGB2.sfc".source = superGameBoyFirm2;
 		home.file."Games/BIOSs/BS-X.bin".source = satellaviewFirm;
+
+		home.packages =  [
+			customPrism
+		];
 	};
 }
