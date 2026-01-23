@@ -19,7 +19,10 @@ in
 			enableZshIntegration = true;
 		};
 
-		programs.btop.enable = true;
+		programs.btop = {
+			enable = true;
+			package = pkgs.btop-cuda;
+		};
 
 		home.packages = with pkgs; [
 			atool
