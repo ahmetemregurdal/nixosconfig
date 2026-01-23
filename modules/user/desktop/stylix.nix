@@ -37,5 +37,12 @@ in
 			kdePackages.breeze kdePackages.breeze-icons
 			nerd-fonts.fira-code fira-sans twitter-color-emoji adwaita-icon-theme
 		];
+		gtk = {
+			enable = true;
+			iconTheme = {
+				name = if config.stylix.polarity == "dark" then "Papirus-Dark" else "Papirus-Light";
+				package = pkgs.papirus-icon-theme;
+			};
+		};
 	};
 }
