@@ -47,6 +47,7 @@ in
 						};
 					};
 					qmlls.enable = language.qml.enable;
+					zls.enable = true;
 				};
 			};
 			plugins.treesitter = {
@@ -67,6 +68,7 @@ in
 						css
 						cpp
 						qmljs
+						zig
 				];
 
 				settings.highlight.enable = true;

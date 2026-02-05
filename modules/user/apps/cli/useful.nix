@@ -37,6 +37,7 @@ in
 			man-pages-posix
 			compiledb
 			gnumake
+			zig
 		];
 	};
 }

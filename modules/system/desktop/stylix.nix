@@ -57,6 +57,8 @@ in
 			targets.plymouth.enable = true;
 			targets.fontconfig.enable = true;
 			targets.font-packages.enable = true;
+			targets.gtk.enable = true;
+			targets.qt.enable = true;
 
 			cursor = {
 				package = pkgs.capitaine-cursors;

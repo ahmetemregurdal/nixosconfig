@@ -78,7 +78,8 @@ binds {
 	Mod+W { toggle-column-tabbed-display; }
 	Mod+D { spawn-sh "exec @dmenudrun@"; }
 	Mod+E { spawn-sh "@editor@"; }
-	Mod+P { spawn-sh "exec @rbwmenu@"; }
+	Mod+Shift+P { spawn-sh "exec @rbwmenu@"; }
+	Mod+P { spawn-sh "exec rmpc togglepause"; }
 	Mod+Shift+B { spawn-sh "exec @bluetoothmenu@"; }
 	Mod+B { spawn-sh "exec @browser@"; }
 	Mod+T { spawn-sh "exec @term@"; }
@@ -88,6 +89,8 @@ binds {
 	XF86AudioPlay { spawn-sh "exec rmpc togglepause"; }
 	XF86AudioPrev { spawn-sh "exec rmpc prev"; }
 	XF86AudioStop { spawn-sh "exec rmpc stop"; }
+	Mod+Period { spawn-sh "exec rmpc next"; }
+	Mod+Comma { spawn-sh "exec rmpc prev"; }
 	XF86AudioRaiseVolume { spawn-sh "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
 	XF86AudioLowerVolume { spawn-sh "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
 	XF86AudioMute { spawn-sh "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }

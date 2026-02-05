@@ -25,11 +25,11 @@ in
 				models = {
 					"llama3" = {
 						cmd = llama-cmd llama3;
-						ttl = 450;
+						ttl = 150;
 					};
 					"stheno" = {
 						cmd = llama-cmd stheno;
-						ttl = 450;
+						ttl = 150;
 					};
 				};
 			};
